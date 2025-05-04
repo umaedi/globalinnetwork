@@ -1,0 +1,170 @@
+.tuba-card-section {
+	position: relative;
+	z-index: 2;
+}
+
+.tuba-card {
+	margin-top: -58px !important;
+	box-shadow: 0px 0px 14px 1px #00000026;
+}
+
+.tuba-btn-default {
+	position: relative;
+	display: inline-block;
+	font-family: var(--accent-font);
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.1em;
+	text-transform: capitalize;
+	background: var(--accent-color);
+	color: var(--primary-color);
+	border-radius: 8px;
+	padding: 16px 25px 16px 25px;
+	border: none;
+	overflow: hidden;
+	z-index: 1;
+}
+
+/* .tuba-form-control {
+	border-radius: 100px;
+} */
+
+.tuba-our-testimonial {
+	padding: 0px 0;
+}
+
+.tuba-testimonial-content p {
+	font-family: var(--accent-font);
+	/* font-size: 13px; */
+	font-weight: 600;
+	color: var(--primary-color);
+	margin: 0;
+}
+
+.tuba-section-title h2 {
+	font-size: 28px;
+	margin-bottom: 0;
+}
+
+.tuba-testimonial-header {
+	position: relative;
+	display: inline-block;
+}
+
+.tuba-testimonial-content img {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+}
+
+.bg-container {
+	background-color: aliceblue;
+	padding: 40px;
+	border-radius: 16px;
+}
+
+.number-circle {
+	background-color: #d1e8a5;
+	color: var(--primary-color);
+	font-weight: bold;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+}
+
+.tuba-nomor-urut-box.service-nomor-urut-box .tuba-nomor-urut {
+	width: 100%;
+}
+
+.tuba-nomor-urut {
+	align-items: flex-start;
+	display: flex;
+
+}
+
+.tuba-nomor-urut-content {
+	/* position: relative; */
+	/* padding-left: 70px; */
+}
+
+.tuba-why-choose-image img {
+	width: 100%;
+	object-fit: cover;
+	border-radius: 16px;
+	transition: all 0.4s ease-in-out;
+}
+
+/* sidebar in landing page */
+.sidebar {
+	height: 100%;
+	width: 300px;
+	position: fixed;
+	top: 0;
+	left: -300px;
+	background-color: #114A43;
+	transition: 0.3s;
+	padding-top: 60px;
+	z-index: 999;
+	box-shadow: 0px 0px 14px 1px #00000026;
+	overflow-y: auto;
+}
+
+.sidebar a {
+	padding: 10px 15px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #ffffff;
+	display: block;
+	transition: 0.3s;
+}
+
+.sidebar a:hover {
+	color: #f1f1f1;
+}
+
+.sidebar .close-btn {
+	position: absolute;
+	top: 10px;
+	right: 25px;
+	font-size: 36px;
+}
+
+.open-sidebar {
+	left: 0;
+}
+
+.tuba-slider {
+	overflow-x: scroll;
+	gap: 10px;
+	cursor: grab;
+	-webkit-overflow-scrolling: touch
+}
+
+.tuba-slider::-webkit-scrollbar {
+	display: none;
+	/* Hide scrollbar */
+}
+
+.tuba-slider a {
+	flex: 0 0 auto;
+	display: inline-block;
+}
+
+/* untuk css responsive  */
+/* Extra Small Devices (Mobile Phones) */
+@media only screen and (max-width: 575px) {
+    /* CSS untuk perangkat dengan lebar <= 575px */
+}
+
+/* Small Devices (Tablets in Portrait Mode) */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    /* CSS untuk perangkat dengan lebar antara 576px - 767px */
+}
+
+/* Medium Devices (Tablets in Landscape Mode) */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* CSS untuk perangkat dengan lebar antara 768px - 991px */
+}

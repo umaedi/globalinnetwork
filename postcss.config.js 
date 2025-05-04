@@ -1,0 +1,12 @@
+module.exports = {
+  plugins: [
+    require('autoprefixer'),
+    require('@fullhuman/postcss-purgecss')({
+      content: [
+        './resources/**/*.blade.php',
+        './resources/**/*.js'
+      ],
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+    })
+  ]
+};

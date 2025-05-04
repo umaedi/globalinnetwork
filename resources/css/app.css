@@ -1,0 +1,239 @@
+@import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.avatar {
+  border-radius: 100%;
+  width: 3.5%;
+  height: 3.5%;
+}
+
+.carousel-caption {
+  border-radius: 6px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.judul-ekslusif {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #212529;
+}
+
+a:hover {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.icon-navigasi {
+  font-size: 1.5rem;
+}
+
+.editor-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.pip {
+  width: 6px;
+  height: 20px;
+  background-color: #0d6efd;
+  display: inline-block;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.editor-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.editor-card {
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.avatar {
+  padding: 2px;
+}
+.verified-badge {
+  position: relative;
+  top: 10px;
+  left: -10px;
+  color: #0d6efd;
+}
+
+.author {
+  font-size: 12px;
+}
+
+.underline-title {
+  border: #3498db solid 2px;
+}
+
+.bx-icon {
+  color: #3498db;
+}
+
+.anak-kategori img {
+  object-fit: cover;
+  max-width: 200px;
+  max-height: 2000px;
+}
+
+.selengkapnya {
+  font-size: 14px;
+}
+
+.konten img {
+  border-radius: 6px;
+  width: 100% !important;
+}
+
+.bx-icon-size {
+  font-size: 25px;
+}
+
+.badge-size {
+  font-size: 1em;
+}
+
+.bxl-whatsapp {
+  color: #25d366;
+}
+
+.bxl-facebook-circle {
+  color: #4267b2;
+}
+
+.bxl-telegram {
+  color: #0088cc;
+}
+
+.bxl-telegram {
+  color: #0088cc;
+}
+
+.notification-popup {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  display: none;
+  z-index: 1000;
+}
+.notification-popup img {
+  width: 100px;
+  height: 100px;
+}
+.notification-popup .popup-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+  margin: 5px;
+}
+.notification-popup .popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin: 5px;
+}
+
+.modal.modal-bottom .modal-dialog {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px; /* Sesuaikan lebar modal */
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Efek slide dari bawah */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Hindari modal menutupi layar penuh */
+.modal-content {
+  border-radius: 15px 15px 0 0;
+}
+/* response */
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 767px) {
+  .notification-popup {
+    width: 400px;
+    bottom: 7%;
+  }
+
+  /* .navbar-text {
+    display: flex;
+    justify-content: center;
+  } */
+
+  .carousel-inner {
+    height: 22rem;
+  }
+
+  .carousel-inner img {
+    height: 22rem;
+    object-fit: cover;
+  }
+
+  .carousel-caption {
+    bottom: 6rem !important;
+    right: inherit !important;
+    left: inherit !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .trending {
+    margin-top: 1rem;
+  }
+
+  .list-berita .thumbnail {
+    width: 70px;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .list-berita p {
+    display: none;
+  }
+
+  footer {
+    margin-bottom: 70px;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+/* @media (min-width: 768px) { ... } */
+
+/* // Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) { ... } */
+
+/* // X-Large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) { ... } */
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+/* @media (min-width: 1400px) { ... } */
