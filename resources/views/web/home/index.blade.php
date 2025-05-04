@@ -53,7 +53,7 @@
                 <div class="card-header bg-white d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <span class="pip"></span>
-                        <strong class="fs-5">Trendingsxx</strong>
+                        <strong class="fs-5">Trending</strong>
                     </div>
                     <a href="#" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
                 </div>
