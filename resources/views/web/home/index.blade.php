@@ -38,7 +38,7 @@
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previouss</span>
+                        <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -53,7 +53,7 @@
                 <div class="card-header bg-white d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <span class="pip"></span>
-                        <strong class="fs-5">Trending</strong>
+                        <strong class="fs-5">Trendingx</strong>
                     </div>
                     <a href="#" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
                 </div>
