@@ -32,6 +32,10 @@ class SubdomainController extends Controller
 
     public function store(Request $request)
     {
+        if($request->subdomain_id) {
+            return $this->handleUpdate($request);
+        }
+        
         $validator = Validator::make($request->all(), [
             'nama_subdomain' => 'required',
             'user_id'   => 'required',
@@ -63,13 +67,12 @@ class SubdomainController extends Controller
         return $this->success($data, "Domain berhasil disubmit");
     }
 
-    public function update(Request $request, $id)
-    {
+    protected function handleUpdate($request) {
         $validator = Validator::make($request->all(), [
-            'nama_domain' => 'required',
+            'nama_subdomain' => 'required',
             'status' => 'required'
         ], [
-            'nama_domain.required' => 'Nama domain wajib diisi',
+            'nama_subdomain.required' => 'Nama domain wajib diisi',
             'status.required' => 'Status domain wajib diisi',
         ]);
 
@@ -77,15 +80,15 @@ class SubdomainController extends Controller
             return $this->error($validator->errors());
         }
 
-        $subdomain = $request->nama_domain . '.' . 'tulangbawangkab.go.id';
-        $cek_domain =$this->subdomain->Query()->where('nama_domain', $subdomain)->first();
+        $subdomain = $request->nama_subdomain;
+        $cek_domain =$this->subdomain->Query()->where('nama_subdomain', $subdomain)->first();
         if($cek_domain) {
             return $this->warning("Nama domain sudah ada!");
         }
 
-        $data_domain =$this->subdomain->find($id);
+        $data_domain = $this->subdomain->find($request->subdomain_id);
         
-        $data['nama_domain'] = $subdomain;
+        $data['nama_subdomain'] = $subdomain;
         $data['status'] = $request->status;
 
         try {

@@ -15,6 +15,7 @@
                                 <label for="nama_subdomain">Nama subdomain</label>
                                 <div class="input-group mb-3">
                                     <input type="text" id="nama_subdomain" name="nama_subdomain" class="form-control">
+                                    <input type="hidden" id="subdomain_id" name="subdomain_id" value="">
                                     <span class="input-group-text" id="basic-addon2">.globalinnetwork.com</span>
                                   </div>
                                 <small class="d-block text-danger"id="error-nama_subdomain"></small>
@@ -99,7 +100,8 @@
         {
             id_domain = id;
             let domain = nama_domain.split('.')[0];
-            $('#nama_domain').val(domain);
+            $('#nama_subdomain').val(domain);
+            $('#subdomain_id').val(id);
             $('#btnSubmit').html("<i class='bx bx-paper-plane'></i> Update");
         }
 
