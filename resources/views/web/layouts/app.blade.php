@@ -55,7 +55,7 @@
           <div class="container">
             <div class="d-flex justify-content-between">
                 <span><small class="author">{{ \Carbon\Carbon::parse(now())->locale('id_ID')->isoFormat('dddd, D MMMM YYYY') }}</small></span>
-                <span><small class="author">Pasang iklan? hubngi: <a href="https://wa.me/6281369264097">081369264097</a></small></span>
+                <span><small class="author">Pasang iklan? hubngi: <a href="https://wa.me/6281369264097" class="text-white">081369264097</a></small></span>
             </div>
           </div>
         </div>

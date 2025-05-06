@@ -138,7 +138,7 @@
                     <span class="pip"></span>
                     <strong class="fs-5">Berita terbaru</strong>
                 </div>
-                <a href="#" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
+                <a href="/berita" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
             </div>
             <div class="row" id="beritaTerbaru">
                 <div class="col-md-4">
