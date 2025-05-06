@@ -1,4 +1,12 @@
 @extends('cms.layouts.app')
+@push('css')
+    <style>
+      .scrolbar {
+        max-height: 350px;
+        overflow-y: auto;
+      }
+    </style>
+@endpush
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="mb-3">
@@ -54,7 +62,7 @@
         <div class="card-header">
         <h5 class="mb-0">{{ $title }}</h5>
         </div>
-          <div class="card-body">
+          <div class="card-body scrolbar">
             <table class="table table-bordered table-responsive">
                 <thead>
                   <tr>
