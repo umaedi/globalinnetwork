@@ -2,7 +2,7 @@
 @push('css')
     <style>
       .scrolbar {
-        max-height: 350px;
+        max-height: 600px;
         overflow-y: auto;
       }
     </style>
