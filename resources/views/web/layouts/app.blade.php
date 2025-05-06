@@ -66,7 +66,10 @@
                 <div class="d-flex justify-content-between align-items-center ">
                     <div class="d-flex align-items-center gap-2">
                         <img src="{{ asset('assets/img/logo/logo-global-innetwork.png') }}" alt="logo" width="30px" lazy="loading">
-                        <a class="navbar-brand fw-bold text-center text-uppercase" href="/">{{ request()->getHost()}}</a>
+                        @php
+                            $subdomain = explode('.', request()->getHost())[0];
+                        @endphp
+                        <a class="navbar-brand fw-bold text-center text-uppercase" href="/">{{ $subdomain }}</a>
                     </div>
                     @auth
                         @if (auth()->user()->role === 'admin' || auth()->user()->role === 'author')
