@@ -76,7 +76,7 @@
                 <div class="d-flex flex-column">
                     <p class="mb-1 judu-post-lainnya"><a href="{{ route('berita.show', ['slug' => $post->slug]) }}">{{ $post->judul}}</a></p>
                     <div class="d-flex gap-2 text-muted">
-                        <small class="date-view"><i class='bx bx-time-five'></i> {{ $post->created_at->format('d M Y') }}</small>
+                        <small class="date-view"><i class='bx bx-time-five'></i> {{ \Carbon\Carbon::parse($post->created_at)->locale('id_ID')->isoFormat('dddd, D MMMM YYYY') }}</small>
                         <small class="date-view"><i class='bx bx-happy-heart-eyes'></i> {{ $post->views }}</small>
                     </div>
                 </div>
