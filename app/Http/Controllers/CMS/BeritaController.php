@@ -95,7 +95,7 @@ class BeritaController extends Controller
         
         $data['excrept'] = Str::limit(strip_tags($request->body), 200, '...');
         $data['user_id']    = $user->id;
-        $data['subdomain']  = 'globalnet';
+        $data['subdomain']  = 'globalinnetwork';
         $data['slug']       = Str::slug($request->judul);
         $data['thumbnail']  = $uniqueFileName;
         $data['caption_thumbnail']  = $request->caption_thumbnail;
