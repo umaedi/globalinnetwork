@@ -98,7 +98,7 @@ class SubberitaController extends Controller
             $data['subdomain']  = $sub->nama_subdomain;
             $data['slug']       = Str::slug($request->judul);
             $data['thumbnail']  = $thumbnail;
-            $data['caption_thumbnail']  = $request->caption_thumbnail;
+            $data['caption_thumbnail']  = $request->caption_thumbnail ?? $post->caption_thumbnail;
             $data['tanggal_publish']    = $request->tanggal_publish ?? Carbon::now();
             $data['pin'] = $request->pin ?? 'berita_terbaru';
 
