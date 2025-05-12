@@ -27,11 +27,12 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data['table'] = $this->post->getPaginate(10);
+            $data['table'] = Post::paginate(10);
             return view('cms.berita._data_table', $data);
         }
 
         $data['title'] = "List berita";
+        $data['table'] = Post::paginate(10);
         return view('cms.berita.index', $data);
     }
 

@@ -8,22 +8,8 @@
             <h3 class="mb-0">List berita</h3>
             <a href="/cms/berita/create" class="btn btn-primary"><i class='bx bx-plus'></i> Buat berita</a>
           </div>
-          <div class="card-body">
-            <table class="table table-bordered table-responsive">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Judul berita</th>
-                    <th scope="col">Kategori</th>
-                    <th scope="col">Penulis</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Aksi</th>
-                  </tr>
-                </thead>
-                <tbody id="dataTable">
-                  
-                </tbody>
-              </table>
+          <div class="card-body" id="dataTable">
+            
           </div>
         </div>
       </div>
@@ -33,6 +19,7 @@
 @push('js')
 <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
     <script type="text/javascript">
+        let page = 1;
         $(document).ready(function() {
             loadTable();
         });
@@ -43,7 +30,8 @@
                 url: '{{ url()->current() }}',
                 method: 'GET',
                 data: {
-                    load: 'table'
+                    load: 'table',
+                    page: page,
                 }
             }
 
@@ -79,6 +67,12 @@
                     swal("Opps!", "Internal server error!", "warning");
                 });
             }
+        }
+
+        function loadPaginate(to)
+        {
+          page = to;
+          loadTable();
         }
     </script>
 @endpush
