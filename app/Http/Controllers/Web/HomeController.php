@@ -83,11 +83,11 @@ class HomeController extends Controller
         
             if($subdomain) {
                 $posts = Cache::remember('exclusive_posts_'.$subdomain, 600, function () use ($subdomain) {
-                    return $this->post->Query()->where('subdomain', $subdomain)->where('status', 'publish')->where('pin', 'ekslusif')->take(3)->get();
+                    return $this->post->Query()->where('subdomain', $subdomain)->where('status', 'publish')->where('pin', 'ekslusif')->take(3)->latest()->get();
                 });
             } else {
                 $posts = Cache::remember('exclusive_posts', 600, function () {
-                    return $this->post->Query()->where('status', 'publish')->where('pin', 'ekslusif')->take(3)->get();
+                    return $this->post->Query()->where('status', 'publish')->where('pin', 'ekslusif')->take(3)->latest()->get();
                 });
             }
         return view('web.home.index', compact('title', 'posts'));
