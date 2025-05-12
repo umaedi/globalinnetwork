@@ -22,7 +22,7 @@
             </td>
             <td style="width: 185px">
                 @if ($tb->subdmain !== 'globalinnetwork')
-                <a href="https://{{ $tb->subdomain }}/berita/{{ $tb->slug }}" target="_blank" class="badge bg-primary"><i class='bx bx-show'></i></a>
+                <a href="https://{{ $tb->subdomain }}.globalinnetwork/berita/{{ $tb->slug }}" target="_blank" class="badge bg-primary"><i class='bx bx-show'></i></a>
                 @else
                 <a href="/berita/{{ $tb->slug }}" target="_blank" class="badge bg-primary"><i class='bx bx-show'></i></a>
                 @endif
