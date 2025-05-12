@@ -8,7 +8,7 @@
             <h3 class="mb-0">List berita</h3>
             <a href="/cms/berita/create" class="btn btn-primary"><i class='bx bx-plus'></i> Buat berita</a>
           </div>
-          <div class="card-body" id="dataTable">
+          <div class="card-body table-responsive" id="dataTable">
             
           </div>
         </div>
