@@ -34,15 +34,15 @@ class Post extends Model
     {
         static::creating(function ($model) {
             $model->id = Uuid::uuid4()->toString();
-            Cache::forget('posts_recent');
+            Cache::forget('exclusive_posts_'. $model->subdomain);
         });
 
         static::updating(function ($model) {
-            Cache::forget('posts_recent');
+            Cache::forget('exclusive_posts_'. $model->subdomain);
         });
 
         static::deleting(function ($model) {
-            Cache::forget('posts_recent');
+            Cache::forget('exclusive_posts_'. $model->subdomain);
         });
     }
 

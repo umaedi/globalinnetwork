@@ -20,6 +20,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Judul berita</th>
+                <th scope="col">Subdomain</th>
                 <th scope="col">Kategori</th>
                 <th scope="col">Penulis</th>
                 <th scope="col">Status</th>

@@ -1,16 +1,4 @@
-<table class="table table-bordered">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Judul berita</th>
-        <th scope="col">Subdomain</th>
-        <th scope="col">Kategori</th>
-        <th scope="col">Penulis</th>
-        <th scope="col">Status</th>
-        <th scope="col">Aksi</th>
-      </tr>
-    </thead>
-    <tbody>
+
         @forelse ($table as $key =>  $tb)
         <tr>
             <th scope="row">{{ $key  + 1}}</th>
@@ -74,5 +62,4 @@
             </td>
         </tr>
     @endforelse
-    </tbody>
-  </table>
+
