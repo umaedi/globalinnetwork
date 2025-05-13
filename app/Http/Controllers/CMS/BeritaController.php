@@ -192,7 +192,7 @@ class BeritaController extends Controller
 
             $data['thumbnail'] = $uniqueFileName;
         } else {
-            $data['thumbnail'] = $berita->thumbnail ?? 'thumbnail.jpg';
+            $data['thumbnail'] = $berita->thumbnail;
         }
 
         $data['excrept'] = Str::limit(strip_tags($request->body), 200, '...');

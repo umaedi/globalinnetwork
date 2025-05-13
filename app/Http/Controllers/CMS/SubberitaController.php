@@ -91,14 +91,17 @@ class SubberitaController extends Controller
         $subdomains = $request->sudmomain;
         foreach ($subdomains as $subdomain) {
             $sub = Subdomain::where('nama_subdomain', $subdomain)->first();
-            $data = $validator->validated();
-        
-            $data['excrept'] = Str::limit(strip_tags($request->body), 200, '...');
+            
             $data['user_id']    = $sub->user->id;
+            $data['category_id']  = $request->input('category_id');
             $data['subdomain']  = $sub->nama_subdomain;
+            $data['judul']  = $request->input('judul');
             $data['slug']       = Str::slug($request->judul);
+            $data['excrept'] = Str::limit(strip_tags($request->body), 200, '...');
             $data['thumbnail']  = $thumbnail;
             $data['caption_thumbnail']  = $request->caption_thumbnail ?? $post->caption_thumbnail;
+            $data['body']  = $request->input('body');
+            $data['status']  = $request->input('status');
             $data['tanggal_publish']    = $request->tanggal_publish ?? Carbon::now();
             $data['pin'] = $request->pin ?? 'berita_terbaru';
 
