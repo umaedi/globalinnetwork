@@ -197,7 +197,7 @@ class BeritaController extends Controller
 
         $data['excrept'] = Str::limit(strip_tags($request->body), 200, '...');
         $data['user_id']    = $berita->user_id == Auth::id() ? Auth::id() : $berita->user_id;
-        $data['subdomain']  = getHost() ?? $berita->subdomain;
+        $data['subdomain']  = $berita->subdomain;
         $data['slug']       = Str::slug($request->judul);
         $data['caption_thumbnail']  = $request->caption_thumbnail ?? $request->input('judul');
         $data['tanggal_publish']    = $request->tanggal_publish ?? Carbon::now();
