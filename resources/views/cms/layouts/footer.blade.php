@@ -6,7 +6,7 @@
           document.write(new Date().getFullYear());
         </script>
         , made with ❤️ by
-        <a href="https://wa.me/6285741492045" target="_blank" class="footer-link fw-bolder">Umaedi KH</a>
+        <a href="#" target="_blank" class="footer-link fw-bolder">Lastcode.id</a>
       </div>
       <div>
         <a
