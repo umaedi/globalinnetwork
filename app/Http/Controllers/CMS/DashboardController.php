@@ -21,10 +21,9 @@ class DashboardController extends Controller
     }
     public function __invoke(Request $request)
     {
-        $subdomain = $request->subdomain;
         if ($request->ajax()) {
-            $data['table'] = $this->post->getPaginate(10);
-            return view('cms.berita._data_table', $data);
+            $data['table'] = Post::with(['user','category'])->limit(10)->get();
+            return view('cms.dashboard._data_table', $data);
         }
         return view('cms.dashboard.index');
     }
