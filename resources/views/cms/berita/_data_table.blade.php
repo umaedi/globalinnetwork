@@ -21,7 +21,7 @@
             <td><span class="badge {{ $tb->status == 'publish' ? 'bg-primary' : 'bg-warning' }}">{{ $tb->status }}</span>
             </td>
             <td style="width: 185px">
-                @if ($tb->subdmain !== 'globalinnetwork')
+                @if ($tb->subdomain !== 'globalinnetwork')
                 <a href="https://{{ $tb->subdomain }}.globalinnetwork.com/berita/{{ $tb->slug }}" target="_blank" class="badge bg-primary"><i class='bx bx-show'></i></a>
                 @else
                 <a href="/berita/{{ $tb->slug }}" target="_blank" class="badge bg-primary"><i class='bx bx-show'></i></a>
