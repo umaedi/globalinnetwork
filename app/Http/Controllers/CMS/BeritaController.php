@@ -27,12 +27,11 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data['table'] = Post::paginate(10);
+            $data['table'] = Post::with(['category', 'user'])->latest()->paginate(10);
             return view('cms.berita._data_table', $data);
         }
 
         $data['title'] = "List berita";
-        $data['table'] = Post::paginate(10);
         return view('cms.berita.index', $data);
     }
 
