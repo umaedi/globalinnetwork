@@ -50,7 +50,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="status">Status</label>
                             <select name="status" id="status" class="form-control">
-                                <option value="">--pilih status--</option>
+                                <option value="publish">--pilih status--</option>
                                 <option value="publish">Publish</option>
                                 <option value="draft">Draft</option>
                             </select>
