@@ -22,7 +22,7 @@ class DashboardController extends Controller
     public function __invoke(Request $request)
     {
         if ($request->ajax()) {
-            $data['table'] = Post::with(['user','category'])->limit(10)->get();
+            $data['table'] = Post::with(['user','category'])->limit(10)->latest()->get();
             return view('cms.dashboard._data_table', $data);
         }
         return view('cms.dashboard.index');
