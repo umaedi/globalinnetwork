@@ -13,7 +13,7 @@
             <a href="/cms/berita" class="btn btn-primary"><i class='bx bx-arrow-back'></i> Kembali</a>
           </div>
           <div class="card-body">
-            <form id="submitBerita">
+            <form action="{{ route('cms-berita-update', ['id' => $berita->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <label class="form-label" for="judul">Judul berita</label>
@@ -27,13 +27,13 @@
                             <select name="category_id" id="category_id" class="form-control">
                                 <option value="">--pilih kategori--</option>
                                 @foreach ($kategori as $item)
-                                <option {{ $item->id == $berita->category_id ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->nama_kategori }}</option>
+                                <option value="{{ $item->id }}" {{ $item->id == $berita->category_id  ? 'selected' : '' }}>{{ $item->nama_kategori }}</option>
                                 @endforeach
                             </select>
                             <small class="mt-1 d-block text-danger"id="error-category_id"></small>
                           </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         <div class="mb-3">
                             <label class="form-label" for="thumbnail">Thumbnail</label>
                             <input type="file" name="thumbnail" class="form-control" id="thumbnail" />
@@ -42,19 +42,35 @@
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3">
+                            <label class="form-label" for="thumbnail">Caption Thumbnail</label>
+                            <input type="text" name="caption_thumbnail" class="form-control" id="caption_thumbnail">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
                             <label class="form-label" for="status">Status</label>
                             <select name="status" id="status" class="form-control">
-                                <option {{ $berita->status == 'publish' ? 'selected' : '' }} value="publish">Publish</option>
-                                <option {{ $berita->status == 'draft' ? 'selected' : '' }} value="draft">Draft</option>
+                                <option value="">--pilih status--</option>
+                                <option value="publish">Publish</option>
+                                <option value="draft">Draft</option>
                             </select>
                             <small class="mt-1 d-block text-danger"id="error-status"></small>
                         </div>
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         <div class="mb-3">
-                            <label class="form-label" for="thumbnail">Caption Thumbnail</label>
-                            <input type="text" name="caption_thumbnail" class="form-control" id="caption_thumbnail">
+                            <label class="form-label" for="status">PIN</label>
+                            <select name="pin" id="pin" class="form-control">
+                                <option value="">--status berita--</option>
+                                <option value="ekslusif">Ekslusif</option>
+                                <option value="pilihan_editor">Pilihan editor</option>
+                            </select>
+                            <small class="mt-1 d-block text-danger"id="error-status"></small>
                         </div>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="" class="form-lable">Tgl publish</label>
+                        <input type="date" name="tanggal_publish" class="form-control">
                     </div>
                 </div>
                 <div class="mb-3">
@@ -66,7 +82,7 @@
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Tunggu sebentar yaah...
                 </button>
-                <button id="btnSubmit" type="submit" class="btn btn-primary"><i class='bx bx-paper-plane'></i> Submit</button>
+                <button id="btnSubmit" type="submit" onclick="loading(true, 'btnSubmit', 'btnLoading')" class="btn btn-primary"><i class='bx bx-paper-plane'></i> Submit</button>
               </form>
           </div>
         </div>
@@ -142,50 +158,50 @@
         }
     });
 
-    $('#submitBerita').submit(async function(e) {
-        e.preventDefault();
-        loadingsubmit(true, 'btnSubmit', 'btnLoading');
+    // $('#submitBerita').submit(async function(e) {
+    //     e.preventDefault();
+    //     loadingsubmit(true, 'btnSubmit', 'btnLoading');
 
-        let param = {
-            url: '/cms/berita/update/{{ $berita->id }}',
-            method: 'POST',
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
-            cache: false
-        }
+    //     let param = {
+    //         url: '/cms/berita/update/{{ $berita->id }}',
+    //         method: 'POST',
+    //         data: new FormData(this),
+    //         processData: false,
+    //         contentType: false,
+    //         cache: false
+    //     }
 
-        await transAjax(param).then((res) => {
-            swal({
-                title: 'Berhasil',
-                text: res.message,
-                icon: 'success',
-                timer: 3000,
-            }).then(() => {
-                loadingsubmit(true, 'btnSubmit', 'btnLoading');
-                window.location.href = '/cms/berita';
-            });
-        }).catch((err) => {
-            loadingsubmit(false, 'btnSubmit', 'btnLoading');
-            if (err.responseJSON && err.responseJSON.errors) {
-                let errors = err.responseJSON.errors;
-                $.each(errors, function(key, value) {
-                    let errorElement = $('#error-' + key);
-                    if (errorElement.length) {
-                        errorElement.html(value[0]);
-                    }
-                });
-            } else {
-                swal({
-                text: "Internal Server Error!",
-                icon: 'error',
-            });
-            }
-            swal({
-                text: err.responseJSON.message,
-                icon: 'error',
-            });
-        });
-    });
+    //     await transAjax(param).then((res) => {
+    //         swal({
+    //             title: 'Berhasil',
+    //             text: res.message,
+    //             icon: 'success',
+    //             timer: 3000,
+    //         }).then(() => {
+    //             loadingsubmit(true, 'btnSubmit', 'btnLoading');
+    //             window.location.href = '/cms/berita';
+    //         });
+    //     }).catch((err) => {
+    //         loadingsubmit(false, 'btnSubmit', 'btnLoading');
+    //         if (err.responseJSON && err.responseJSON.errors) {
+    //             let errors = err.responseJSON.errors;
+    //             $.each(errors, function(key, value) {
+    //                 let errorElement = $('#error-' + key);
+    //                 if (errorElement.length) {
+    //                     errorElement.html(value[0]);
+    //                 }
+    //             });
+    //         } else {
+    //             swal({
+    //             text: "Internal Server Error!",
+    //             icon: 'error',
+    //         });
+    //         }
+    //         swal({
+    //             text: err.responseJSON.message,
+    //             icon: 'error',
+    //         });
+    //     });
+    // });
 </script>
 @endpush

@@ -131,6 +131,7 @@ class BeritaController extends Controller
             'judul.required'    => 'Judul berita wajib diisi!',
             'category_id.required'      => 'Silakan pilih salah satu kategori',
             'body.required'             => 'Konten berita wajib diisi!',
+            'status.required'       => 'Status wajib dipilih'
         ]);
 
         //kembalikan response errors jika terdapat validasi yang tdk sesuai
@@ -194,10 +195,13 @@ class BeritaController extends Controller
             $data['thumbnail'] = $berita->thumbnail ?? 'thumbnail.jpg';
         }
 
-        $data['user_id'] = Auth::user()->id;
-        $data['domain'] = $berita->domain;
-        $data['slug'] = Str::slug($request->judul);
-        $data['caption_thumbnail'] = $request->caption_thumbnail;
+        $data['excrept'] = Str::limit(strip_tags($request->body), 200, '...');
+        $data['user_id']    = Auth::id();
+        $data['subdomain']  = $request->getHost() ?? $berita->subdomain;
+        $data['slug']       = Str::slug($request->judul);
+        $data['caption_thumbnail']  = $request->caption_thumbnail ?? $request->input('judul');
+        $data['tanggal_publish']    = $request->tanggal_publish ?? Carbon::now();
+        $data['pin'] = $request->pin ?? 'berita_terbaru';
 
         try {
             $this->post->update($berita, $data);
