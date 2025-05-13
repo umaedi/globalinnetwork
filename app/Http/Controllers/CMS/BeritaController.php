@@ -126,7 +126,6 @@ class BeritaController extends Controller
             'judul'         => 'required',
             'category_id'   => 'required',
             'body'          => 'required',
-            'status'        => 'required'
         ], [
             'judul.required'    => 'Judul berita wajib diisi!',
             'category_id.required'      => 'Silakan pilih salah satu kategori',
@@ -202,6 +201,7 @@ class BeritaController extends Controller
         $data['caption_thumbnail']  = $request->caption_thumbnail ?? $request->input('judul');
         $data['tanggal_publish']    = $request->tanggal_publish ?? Carbon::now();
         $data['pin'] = $request->pin ?? 'berita_terbaru';
+        $data['status'] = $request->input('status', 'publish');
 
         try {
             $this->post->update($berita, $data);
