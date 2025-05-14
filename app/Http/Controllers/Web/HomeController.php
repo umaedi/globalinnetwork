@@ -55,8 +55,8 @@ class HomeController extends Controller
                             
                     $categoryIds = $posts->pluck('category_id')->unique();
                     $categories = Category::whereIn('id', $categoryIds)
-                        ->with(['posts' => function ($query) {
-                            $query->where('status', 'publish')->where('pin', 'berita_terbaru')->latest()->take(4);
+                        ->with(['posts' => function ($query, $subdomain) {
+                            $query->where('status', 'publish')->where('pin', 'berita_terbaru')->where('subdomain', $subdomain)->latest()->take(4);
                         }])
                         ->get();
                     return view('web.home._berita_terbaru', compact('categories'));
