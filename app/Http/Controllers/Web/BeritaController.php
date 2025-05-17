@@ -24,7 +24,7 @@ class BeritaController extends Controller
     {
         if($request->ajax()) {
            if($request->load_type == 'berita') {
-                $posts = $this->post->query()
+                $posts = $this->post->query()->where('subdomain', $request->getHost())
                 ->when($request->search, function ($query, $search) {
                     return $query->where('judul', 'like', '%' . $search . '%');
                 })
