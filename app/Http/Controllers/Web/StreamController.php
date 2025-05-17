@@ -19,29 +19,30 @@ class StreamController extends Controller
                 abort(404);
             }
     
+            $fullPathFile = $path . $filename;
             // Path file di MinIO
-            $path = str_replace('|', '/', $path) . '/' . $filename;
+            $pathFile = str_replace('|', '/', $fullPathFile);
     
             // Periksa apakah file ada di MinIO
-            if (!Storage::exists($path)) {
+            if (!Storage::exists($pathFile)) {
                 // abort(404);
-                $path = public_path('assets/img/thumbnail.png');
-                return response()->file($path);
+                $pathFile = public_path('assets/img/thumbnail.png');
+                return response()->file($pathFile);
             }
     
             // Dapatkan MIME type
-            $mimeType = Storage::mimeType($path);
+            $mimeType = Storage::mimeType($pathFile);
     
             // Stream file
-            return response()->stream(function () use ($path) {
-                $stream = Storage::readStream($path);
+            return response()->stream(function () use ($pathFile) {
+                $stream = Storage::readStream($pathFile);
                 while (!feof($stream)) {
                     echo fread($stream, 1024 * 8); // Membaca file dalam blok 8 KB
                 }
                 fclose($stream);
             }, 200, [
                 'Content-Type' => $mimeType,
-                'Content-Disposition' => 'inline; filename="' . basename($path) . '"',
+                'Content-Disposition' => 'inline; filename="' . basename($pathFile) . '"',
             ]);
         }
     }
