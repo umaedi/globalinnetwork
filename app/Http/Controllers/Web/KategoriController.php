@@ -37,10 +37,17 @@ class KategoriController extends Controller
         $category = $this->kategori->Query()->where('slug', $slug)->first();
         if($request->ajax()) {
             if($request->load_type == 'berita') {
-                 $posts = $this->post->Query()->where('category_id', $category->id)->where('status', 'publish')->latest()->paginate(10);
+                 $posts = $this->post->Query()
+                 ->where('category_id', $category->id)
+                 ->orWhere('pin', $slug)
+                 ->where('status', 'publish')
+                 ->latest()->paginate(10);
                  return view('web.berita._list', compact('posts'));
              }else {
-                 $kategori = $this->kategori->Query()->take(6)->latest()->withCount('posts')->get();
+                 $kategori = $this->kategori->Query()
+                 ->take(6)->latest()
+                 ->withCount('posts')
+                 ->get();
                  return view('web.home._kategori', compact('kategori'));
              }
          }

@@ -71,7 +71,7 @@
             <span class="pip"></span>
             <strong class="fs-5">Pilihan editor</strong>
         </div>
-        <a href="#" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
+        <a href="/kategori/pilihan_editor" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
     </div>
     <div id="pilihanEditor">
         <div class="row">
@@ -198,12 +198,11 @@
         <!-- Trending topik -->
         <div class="col-md-4">
             <!-- Kategori -->
-            <div class="card-header bg-white d-flex justify-content-between align-items-center mb-3">
+            <div class="card-header bg-white mb-3">
                 <div class="d-flex align-items-center">
                     <span class="pip"></span>
                     <strong class="fs-5">Kategori</strong>
                 </div>
-                <a href="#" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
             </div>
             <div class="card border-0 shadow-sm">
                 <div class="card-body" id="kategori">
