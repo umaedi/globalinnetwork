@@ -3,7 +3,11 @@
         <tr>
             <th scope="row">{{ $key  + 1}}</th>
             <td>{{ $tb->judul }}</td>
-            <td>{{ $tb->subdomain ?? '-' }}</td>
+            @if($tb->subdomain !== 'globalinnetwork')
+            <td><a href="https://{{ $tb->subdomain }}.globalinnetwork.com">{{ $tb->subdomain ?? '-' }}</a></td>
+            @else
+            <td><a href="https://globalinnetwork.com">{{ $tb->subdomain ?? '-' }}</a></td>
+            @endif
             <td>{{ $tb->category->nama_kategori ?? '-' }}</td>
             <td>{{ $tb->user->name ?? 'Admin' }}</td>
             <td><span class="badge {{ $tb->status == 'publish' ? 'bg-primary' : 'bg-warning' }}">{{ $tb->status }}</span>
