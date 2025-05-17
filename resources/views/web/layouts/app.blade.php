@@ -207,7 +207,7 @@
         }
 
         await transAjax(param).then((result) => {
-            let data = JSON.parse(result.metadata);
+            let data = result.metadata;
             let html = '';
                 data.forEach(element => {
                     html += `<a href="/kategori/${element.slug}" <span class="badge bg-primary badge-size text-white">${element.nama_kategori}</span></a>`;
