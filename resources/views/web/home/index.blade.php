@@ -15,7 +15,9 @@
     }
 </style>
 <section class="container my-4">
-    <img src="{{ asset('assets/img/banner.webp') }}" loading="eager" alt="ekslusif" class="responsive mb-3" width="100%">
+    <a href="https://wa.me/6281369264097" target="_blank">
+        <img src="{{ asset('assets/img/banner.webp') }}" loading="eager" alt="ekslusif" class="responsive mb-3" width="100%">
+    </a>
 </section>
 <section class="container mt-4">
     <div class="row">
