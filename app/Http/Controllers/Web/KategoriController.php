@@ -34,15 +34,24 @@ class KategoriController extends Controller
 
     public function show(Request $request, $slug)
     {
-        $category = $this->kategori->Query()->where('slug', $slug)->first();
         if($request->ajax()) {
             if($request->load_type == 'berita') {
-                 $posts = $this->post->Query()
-                 ->where('category_id', $category->id)
-                 ->orWhere('pin', $slug)
-                 ->where('status', 'publish')
-                 ->latest()->paginate(10);
+                if($slug == 'pilihan_editor') {
+                    $posts = $this->post->Query()
+                    ->orWhere('pin', $slug)
+                    ->where('status', 'publish')
+                    ->latest()->paginate(10);
+                    return view('web.berita._list', compact('posts'));
+                }else {
+                    $category = Category::where('slug', $slug)->first();
+                    $posts = $this->post->Query()
+                    ->where('category_id', $category->id)
+                    ->orWhere('pin', $slug)
+                    ->where('status', 'publish')
+                    ->latest()->paginate(10);
                  return view('web.berita._list', compact('posts'));
+                }
+
              }else {
                  $kategori = $this->kategori->Query()
                  ->take(6)->latest()
@@ -52,7 +61,7 @@ class KategoriController extends Controller
              }
          }
  
-         $title = "Berita kategori " . $category->nama_kategori ?? '';
+         $title = "Berita kategori";
          return view('web.berita.index', compact('title'));
     }
 }
