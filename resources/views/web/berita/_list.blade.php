@@ -34,4 +34,8 @@
 @empty
     <h3>Data not found</h3>
 @endforelse
-{{ $posts->links('components.pagination') }}
+<div class="row">
+    <div class="col-12 d-flex justify-content-center mt-4">
+        {{ $posts->links('components.pagination') }}
+    </div>
+</div>
