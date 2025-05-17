@@ -14,17 +14,19 @@ class BeritaController extends Controller
 {
     public $post;
     public $kategori;
+    public $subdomain;
     public function __construct(Post $post, Category $category)
     {
         $this->post = new BaseService($post);
         $this->kategori = new BaseService($category);
+        $this->subdomain =  getHost();
     }
 
     public function index(Request $request)
     {
         if($request->ajax()) {
            if($request->load_type == 'berita') {
-                $posts = $this->post->query()->where('subdomain', $request->getHost())
+                $posts = $this->post->query()->where('subdomain', $this->subdomain)
                 ->when($request->search, function ($query, $search) {
                     return $query->where('judul', 'like', '%' . $search . '%');
                 })
