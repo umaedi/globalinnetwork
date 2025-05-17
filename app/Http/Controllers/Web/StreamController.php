@@ -19,7 +19,7 @@ class StreamController extends Controller
                 abort(404);
             }
     
-            $fullPathFile = $path . $filename;
+            $fullPathFile = $path . '/' . $filename;
             // Path file di MinIO
             $pathFile = str_replace('|', '/', $fullPathFile);
     
