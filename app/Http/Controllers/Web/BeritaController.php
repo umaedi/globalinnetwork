@@ -32,8 +32,8 @@ class BeritaController extends Controller
                 })
                 ->where('status', 'publish')
                 ->latest()
-                ->limit(80)
-                ->paginate(10);
+                ->paginate(10)
+                ->onEachSide(4);
 
                 return view('web.berita._list', compact('posts'));
             }else {
