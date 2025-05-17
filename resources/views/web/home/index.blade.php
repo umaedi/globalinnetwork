@@ -55,7 +55,7 @@
                         <span class="pip"></span>
                         <strong class="fs-5">Trending</strong>
                     </div>
-                    <a href="#" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
+                    <a href="/kategori/trending_topik" class="text-primary text-decoration-none fw-semibold">Lihat lainnya <i class='bx bx-chevron-right'></i></a>
                 </div>
                 <div class="card-body height-content" id="trending">
                     

@@ -42,14 +42,20 @@ class KategoriController extends Controller
                     ->where('status', 'publish')
                     ->latest()->paginate(10);
                     return view('web.berita._list', compact('posts'));
+                }elseif($slug == 'trending_topik') {
+                    $posts = $this->post->Query()
+                    ->orderBy('views', 'desc')
+                    ->where('status', 'publish')
+                    ->paginate(10);
+                    return view('web.berita._list', compact('posts'));
                 }else {
-                    $category = Category::where('slug', $slug)->first();
+                     $category = Category::where('slug', $slug)->first();
                     $posts = $this->post->Query()
                     ->where('category_id', $category->id)
                     ->orWhere('pin', $slug)
                     ->where('status', 'publish')
                     ->latest()->paginate(10);
-                 return view('web.berita._list', compact('posts'));
+                    return view('web.berita._list', compact('posts'));
                 }
 
              }else {
