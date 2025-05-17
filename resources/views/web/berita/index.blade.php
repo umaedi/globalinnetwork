@@ -3,6 +3,10 @@
 <section class="container my-4">
     <div class="row">
         <div class="col-md-8">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="inputSearch" placeholder="Cari berita...">
+                <button class="btn btn-outline-secondary" type="button" id="buttonSearch">Cari</button>
+            </div>
             <div class="card border-0 shadow-sm trending">
                 <div class="card-header bg-white">
                     <div class="d-flex align-items-center">
@@ -39,16 +43,34 @@
 @endsection
 @push('js')
 <script type="text/javascript">
+    let page = 1;
+    let search = '';
     $(document).ready(function() {
         trending()
+
+        $('#buttonSearch').click(function() {
+            search = $('#inputSearch').val();
+            trending();
+        });
+
+        $('#inputSearch').on('keypress', function(e) {
+            if(e.which == 13) {
+               search = $('#inputSearch').val();
+                trending();
+                return false;
+            }
+        });
     });
 
+    
     async function trending() {
         var param = {
             url: '{{ url()->current() }}',
             method: 'GET',
             data: {
                 load_type: 'berita',
+                search: search,
+                page: page,
             }
         }
 
@@ -74,6 +96,12 @@
         }).catch((err) => {
             console.log(err);
         })
+    }
+
+    function loadPaginate(to)
+    {
+        page = to;
+        trending();
     }
 </script>
 @endpush

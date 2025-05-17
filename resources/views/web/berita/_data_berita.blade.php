@@ -1,7 +1,6 @@
  @isset($search)
      <h3 class="mb-5">Hasil Pencarian dari "{{ $search }}"</h3>
  @endisset
-
  <div class="baru-news-section">
      @forelse ($posts as $item)
          <a href="/berita/{{ $item->slug }}" class="text-dark">
@@ -58,4 +57,4 @@
          </div>
      @endforelse
  </div>
- {{-- {{ $posts->links('components.pagination') }} --}}
+ {{ $posts->links('components.pagination') }}

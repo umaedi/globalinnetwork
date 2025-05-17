@@ -24,7 +24,14 @@ class BeritaController extends Controller
     {
         if($request->ajax()) {
            if($request->load_type == 'berita') {
-                $posts = $this->post->Query()->where('status', 'publish')->latest()->paginate();
+                $posts = $this->post->query()
+                ->when($request->search, function ($query, $search) {
+                    return $query->where('judul', 'like', '%' . $search . '%');
+                })
+                ->where('status', 'publish')
+                ->latest()
+                ->paginate();
+
                 return view('web.berita._list', compact('posts'));
             }else {
                 $kategori = $this->kategori->Query()->take(6)->latest()->withCount('posts')->get();

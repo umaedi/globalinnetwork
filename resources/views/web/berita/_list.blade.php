@@ -34,3 +34,4 @@
 @empty
     <h3>Data not found</h3>
 @endforelse
+{{ $posts->links('components.pagination') }}
