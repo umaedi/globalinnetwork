@@ -44,9 +44,9 @@
                                     <div class="text-muted author">{{ $post->user->role }}</div>
                                 </div>
                                 <span class="ms-auto bx-icon-size">
-                                    <a href="//api.whatsapp.com/send?text={{ urlencode(url($post->slug)) }}"><i class='bx bxl-whatsapp'></i></a>
-                                    <a href="//www.facebook.com/sharer.php?u={{ urlencode(url($post->slug)) }}"><i class='bx bxl-facebook-circle'></i></a>
-                                    <a href="https://t.me/share/url?url={{ urlencode(url($post->slug)) }}"><i class='bx bxl-telegram' ></i></a>
+                                    <a href="//api.whatsapp.com/send?text={{ urlencode(url('/berita/'.$post->slug)) }}"><i class='bx bxl-whatsapp'></i></a>
+                                    <a href="//www.facebook.com/sharer.php?u={{ urlencode(url('/berita/'.$post->slug)) }}"><i class='bx bxl-facebook-circle'></i></a>
+                                    <a href="https://t.me/share/url?url={{ urlencode(url('/berita/'.$post->slug)) }}"><i class='bx bxl-telegram' ></i></a>
                                     <a href="#komentar"><i class='bx bx-comment-dots text-danger'></i></a>
                                 </span>
                             </div>
