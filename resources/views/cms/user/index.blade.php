@@ -87,7 +87,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+               <button id="btnLoading" class="btn btn-primary d-none" type="button" disabled>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Tunggu sebentar yaah...
+                </button>
+                <button id="btnSubmit" onclick="loading(true, 'btnSubmit', 'btnLoading')" type="submit" class="btn btn-primary"><i class='bx bx-paper-plane'></i> Simpan</button>
             </div>
         </form>
         </div>
