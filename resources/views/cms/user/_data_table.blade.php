@@ -5,7 +5,7 @@
     <td>{{ $tb->email }}</td>
     <td>{{ $tb->role }}</td>
     <td style="width: 150px">
-        @if (auth()->user()->email == 'umaedi.kh.99@gmail.com' && auth()->user()->email == 'safrilridho17@gmail.com')
+        @if (auth()->user()->email == 'umaedi.kh.99@gmail.com' || auth()->user()->email == 'safrilridho17@gmail.com')
         <span class="badge bg-primary mb-2" onclick="setRole('{{ $tb->id }}')"><i class='bx bx-user'></i></span>
         @endif
         <span class="badge bg-warning mb-2" onclick="updateUser('{{ $tb->id }}','{{ $tb->name }}', '{{ $tb->email }}')"><i class='bx bxs-edit'></i></span>
