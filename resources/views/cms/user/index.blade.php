@@ -48,21 +48,8 @@
         <h5 class="mb-0">{{ $title }}</h5>
         </div>
           <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nama user</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Aksi</th>
-                    </tr>
-                    </thead>
-                    <tbody id="dataTable">
-                    
-                    </tbody>
-                </table>
+            <div class="table-responsive" id="dataTable">
+                
             </div>
           </div>
         </div>
@@ -102,6 +89,7 @@
 <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
 <script type="text/javascript">
         let id_domain = "";
+        let page = 1;
         $(document).ready(function() {
             loadTable();
             
@@ -143,6 +131,7 @@
                 method: "GET",
                 data: {
                     load: 'table',
+                    page: page
                 }
             }
 
@@ -191,6 +180,12 @@
         {
             $('#userId').val(userId);
             $("#setRoleModal").modal("show");
+        }
+
+        function loadPaginate(to)
+        {
+          page = to;
+          loadTable();
         }
     </script>
 @endpush

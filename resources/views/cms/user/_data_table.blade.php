@@ -1,3 +1,14 @@
+<table class="table table-bordered">
+<thead>
+<tr>
+    <th scope="col">#</th>
+    <th scope="col">Nama user</th>
+    <th scope="col">Email</th>
+    <th scope="col">Status</th>
+    <th scope="col">Aksi</th>
+</tr>
+</thead>
+<tbody>
 @forelse ($table as $key => $tb)
 <tr>
     <th scope="row">{{ $key + 1 }}</th>
@@ -52,5 +63,8 @@
         </div>
     </td>
 </tr>
-
 @endforelse
+</tbody>
+</table>
+
+{{ $table->links('components.pagination') }}

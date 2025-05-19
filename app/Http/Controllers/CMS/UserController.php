@@ -28,7 +28,7 @@ class UserController extends Controller
                 return response()->json($response);
             }
 
-            $data['table'] = User::with('subdomain')->get();
+            $data['table'] = User::with('subdomain')->paginate(10);
            return view('cms.user._data_table', $data);
         }
 
