@@ -18,10 +18,12 @@ class BeritaController extends Controller
 {
     public $post;
     public $kategori;
+    public $subdomain;
     public function __construct(Post $post, Category $category)
     {
         $this->post = new BaseService($post);
         $this->kategori = new BaseService($category);
+        $this->subdomain = getHost();
     }
 
     public function index(Request $request)
@@ -95,10 +97,10 @@ class BeritaController extends Controller
         
         $data['excrept'] = Str::limit(strip_tags($request->body), 200, '...');
         $data['user_id']    = $user->id;
-        $data['subdomain']  = 'globalinnetwork';
+        $data['subdomain']  = $this->subdomain;
         $data['slug']       = Str::slug($request->judul);
         $data['thumbnail']  = $uniqueFileName;
-        $data['caption_thumbnail']  = $request->caption_thumbnail;
+        $data['caption_thumbnail']  = $request->caption_thumbnail ?? $request->judul;
         $data['tanggal_publish']    = $request->tanggal_publish ?? Carbon::now();
         $data['pin'] = $request->pin ?? 'berita_terbaru';
 
