@@ -11,7 +11,7 @@
 <tbody>
 @forelse ($table as $key => $tb)
 <tr>
-    <th scope="row">{{ $key + 1 }}</th>
+    <th scope="row">{{ $table->firstItem() + $key }}</th>
     <td>{{ $tb->name }}</td>
     <td>{{ $tb->email }}</td>
     <td>{{ $tb->role }}</td>
