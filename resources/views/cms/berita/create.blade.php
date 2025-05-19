@@ -82,7 +82,7 @@
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                     Tunggu sebentar yaah...
                 </button>
-                <button id="btnSubmit" type="submit" onclick="loading(true, 'btnSubmit', 'btnLoading')" class="btn btn-primary"><i class='bx bx-paper-plane'></i> Simpan</button>
+                <button id="btnSubmit" type="submit" onclick="loading(true, 'btnSubmit', 'btnLoading', '/cms/berita')" class="btn btn-primary"><i class='bx bx-paper-plane'></i> Simpan</button>
               </form>
           </div>
         </div>

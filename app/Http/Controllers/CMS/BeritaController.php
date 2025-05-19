@@ -110,7 +110,7 @@ class BeritaController extends Controller
             return $this->error($th->getMessage());
         }
 
-        return $this->success("Oke", "Berita berhasil di submit!");
+        return $this->success('', "Berita berhasil di submit!");
     }
 
     public function edit(Request $request)
