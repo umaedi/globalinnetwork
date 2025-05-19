@@ -67,6 +67,32 @@
           </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="setRoleModal" tabindex="-1" aria-labelledby="setRoleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="setRoleModalLabel">Set Role</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ route('cms-setRole') }}" method="POST">
+            @csrf
+            <div class="modal-body">
+                <select name="role" id="set_role" class="form-control">
+                    <option value="">--pilih role--</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+                <input type="hidden" name="user_id" id="userId" value="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+        </div>
+    </div>
+    </div>
 @endsection
 @push('js')
 <script src="{{ asset('assets/js/sweetalert.min.js') }}"></script>
@@ -155,6 +181,12 @@
                     swal("Opps!", "Internal server error!", "warning");
                 });
             }
+        }
+
+        function setRole(userId)
+        {
+            $('#userId').val(userId);
+            $("#setRoleModal").modal("show");
         }
     </script>
 @endpush

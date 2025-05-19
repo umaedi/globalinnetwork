@@ -11,6 +11,15 @@ abstract class Controller
             'message'   => $message,
         ], $code);
     }    
+
+    protected function info(string $message = 'Error!', int $code = Response::HTTP_UNPROCESSABLE_ENTITY)
+    {
+        return response()->json([
+            'success'   => false,
+            'message'   => $message,
+        ], $code);
+    }
+
     protected function warning(string $message = 'Error!', int $code = Response::HTTP_INTERNAL_SERVER_ERROR)
     {
         return response()->json([

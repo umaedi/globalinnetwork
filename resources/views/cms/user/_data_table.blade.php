@@ -5,8 +5,10 @@
     <td>{{ $tb->email }}</td>
     <td>{{ $tb->role }}</td>
     <td style="width: 150px">
-        <span class="badge bg-primary"><i class='bx bx-show'></i></span>
-        <span class="badge bg-warning" onclick="updateUser('{{ $tb->id }}','{{ $tb->name }}', '{{ $tb->email }}')"><i class='bx bxs-edit'></i></span>
+        @if (auth()->user()->email == 'umaedi.kh.99@gmail.com' && auth()->user()->email == 'safrilridho17@gmail.com')
+        <span class="badge bg-primary mb-2" onclick="setRole('{{ $tb->id }}')"><i class='bx bx-user'></i></span>
+        @endif
+        <span class="badge bg-warning mb-2" onclick="updateUser('{{ $tb->id }}','{{ $tb->name }}', '{{ $tb->email }}')"><i class='bx bxs-edit'></i></span>
         <span class="badge bg-danger" onclick="destroy('{{ $tb->id }}')"><i class='bx bxs-x-circle'></i></span>
     </td>
 </tr>

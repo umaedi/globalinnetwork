@@ -89,6 +89,22 @@ class UserController extends Controller
         return $this->success($data_user, 'User berhasil diperbaharui');
     }
 
+    public function setRole(Request $request)
+    {
+        $validator = Validator::make($request->only('role', 'user_id'), [
+            'role'  => 'required',
+            'user_id'   => 'required'
+        ]);
+
+        if($validator->fails()) {
+            return $this->info('Role wajib dipilih');
+        }
+
+        $user = $this->user->find($request->input('user_id'));
+        $user->update(['role' => $request->input('role')]);
+        return $this->success('', 'Role user berhasil diperbaharui');
+    }
+
     public function destory($id)
     {
         $user = $this->user->find($id);

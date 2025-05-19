@@ -71,6 +71,7 @@ Route::middleware(['auth', 'otp.verified'])->group(function() {
         //route user
         Route::controller(CMS\UserController::class)->group(function() {
             Route::get('/user', 'index')->name('cms-user');
+            Route::post('/user/set-role', 'setRole')->name('cms-setRole');
             Route::post('/user/store', 'store')->name('cms-user-store');
             Route::post('/user/update/{id}', 'update')->name('cms-user-update');
             Route::post('/user/destroy/{id}', 'destory')->name('cms-user-delete');
