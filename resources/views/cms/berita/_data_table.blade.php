@@ -26,12 +26,12 @@
             </td>
             <td style="width: 185px">
                 @if ($tb->subdomain !== 'globalinnetwork')
-                <a href="https://{{ $tb->subdomain }}.globalinnetwork.com/berita/{{ $tb->slug }}" target="_blank" class="badge bg-primary"><i class='bx bx-show'></i></a>
+                <a href="https://{{ $tb->subdomain }}.globalinnetwork.com/berita/{{ $tb->slug }}" target="_blank" class="mb-2 badge bg-primary"><i class='bx bx-show'></i></a>
                 @else
-                <a href="/berita/{{ $tb->slug }}" target="_blank" class="badge bg-primary"><i class='bx bx-show'></i></a>
+                <a href="/berita/{{ $tb->slug }}" target="_blank" class="mb-2 badge bg-primary"><i class='bx bx-show'></i></a>
                 @endif
-                <a href="/cms/berita/edit/{{ $tb->id }}" class="badge bg-warning"><i class='bx bxs-edit'></i></a>
-                <span class="badge bg-danger" onclick="hapusBerita('{{ $tb->id }}')"><i
+                <a href="/cms/berita/edit/{{ $tb->id }}" class="mb-2 badge bg-warning"><i class='bx bxs-edit'></i></a>
+                <span class="mb-2 badge bg-danger" onclick="hapusBerita('{{ $tb->id }}')"><i
                         class='bx bxs-x-circle'></i></span>
                <a href="{{ route('cms-sub_berita.create', ['berita_id' => $tb->id]) }}"><span class="badge bg-info"><i class='bx bx-share-alt'></i></span></a> 
             </td>
