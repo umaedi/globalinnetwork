@@ -69,7 +69,11 @@
                         @php
                             $subdomain = explode('.', request()->getHost())[0];
                         @endphp
+                        @if ($subdomain == 'globalinnetwork')
+                        <a class="navbar-brand fw-bold text-center text-uppercase" href="/"><span class="text-danger">GLOBAL</span> <span class="text-primary">INNETWORK</span></a>
+                        @else
                         <a class="navbar-brand fw-bold text-center text-uppercase" href="/">{{ $subdomain }}</a>
+                        @endif
                     </div>
                     @auth
                         @if (auth()->user()->role === 'admin' || auth()->user()->role === 'author')
