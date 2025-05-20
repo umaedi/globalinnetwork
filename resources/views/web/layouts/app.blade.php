@@ -68,11 +68,12 @@
                         <img src="{{ asset('assets/img/logo/logo-global-innetwork.png') }}" alt="logo" width="30px" lazy="loading">
                         @php
                             $subdomain = explode('.', request()->getHost())[0];
+                            $formattedSubdomain = ucwords(str_replace('-', ' ', $subdomain));
                         @endphp
                         @if ($subdomain == 'globalinnetwork')
                         <a class="navbar-brand fw-bold text-center text-uppercase" href="/"><span class="text-danger">GLOBAL</span> <span class="text-primary">INNETWORK</span></a>
                         @else
-                        <a class="navbar-brand fw-bold text-center text-uppercase" href="/">{{ $subdomain }}</a>
+                        <a class="navbar-brand fw-bold text-center text-uppercase" href="/">{{ $formattedSubdomain }}</a>
                         @endif
                     </div>
                     @auth
