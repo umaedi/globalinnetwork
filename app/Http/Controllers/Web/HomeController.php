@@ -7,6 +7,7 @@ use App\Services\BaseService;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Post;
+use Illuminate\Queue\Middleware\Skip;
 use Illuminate\Support\Facades\Cache;
 
 
@@ -48,9 +49,14 @@ class HomeController extends Controller
 
                 case 'berita-terbaru':
                     if($subdomain) {
-                        $posts = $this->post->Query()->where('subdomain', $subdomain)->where('status', 'publish')->where('pin', 'berita_terbaru')->whereNotNull('category_id')->latest()->take(10)->get();
+                        $posts = $this->post->Query()
+                        ->where('subdomain', $subdomain)
+                        ->where('status', 'publish')->skip(9)
+                        ->whereNotNull('category_id')->latest()->take(10)->get();
                     } else {
-                        $posts = $this->post->Query()->where('status', 'publish')->where('pin', 'berita_terbaru')->whereNotNull('category_id')->latest()->take(10)->get();
+                        $posts = $this->post->Query()
+                        ->where('status', 'publish')->skip(9)
+                        ->whereNotNull('category_id')->latest()->take(10)->get();
                     }
                             
                     $categoryIds = $posts->pluck('category_id')->unique();
