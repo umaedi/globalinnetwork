@@ -115,7 +115,7 @@
             </div>
             <div class="d-flex flex-wrap gap-2 justify-content-center">
                 @forelse ($subdomains as $subdomain)
-                <a href="https://{{ $subdomain->nama_subdomain }}.globalinnetwork.com"><span class="shadow-sm p-2 rounded">{{ $subdomain->nama_subdomain }}</span></a>
+                <a href="https://{{ $subdomain->nama_subdomain }}.globalinnetworks.com"><span class="shadow-sm p-2 rounded">{{ $subdomain->nama_subdomain }}</span></a>
                 @empty
                     <p>Submenu belum tersedia</p>
                 @endforelse
